@@ -2,10 +2,17 @@ FROM ubuntu:15.10
 MAINTAINER Christof Dorner (https://github.com/chdorner)
 
 RUN apt-get update
-RUN apt-get install -yq vim
+RUN apt-get install -yq \
+  sudo \
+  vim
 
-RUN adduser --disabled-password --gecos "" dev
+RUN useradd -m dev && echo "dev:dev" | chpasswd && adduser dev sudo
+RUN sed -i.bkp -e \
+  's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' \
+  /etc/sudoers
 
 USER dev
 WORKDIR /home/dev
+RUN touch ~/.sudo_as_admin_successful
+
 CMD ["bash"]
