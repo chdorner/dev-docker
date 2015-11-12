@@ -4,6 +4,7 @@ MAINTAINER Christof Dorner (https://github.com/chdorner)
 RUN apt-get update
 RUN apt-get install -yq \
   sudo \
+  tmux \
   vim
 
 RUN useradd -m dev && echo "dev:dev" | chpasswd && adduser dev sudo
@@ -15,4 +16,7 @@ USER dev
 WORKDIR /home/dev
 RUN touch ~/.sudo_as_admin_successful
 
-CMD ["bash"]
+
+ADD .tmux.conf .tmux.conf
+
+CMD ["tmux"]
