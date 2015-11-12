@@ -5,6 +5,7 @@ RUN apt-get update
 RUN apt-get install -yq \
   sudo \
   tmux \
+  git \
   vim
 
 RUN useradd -m dev && echo "dev:dev" | chpasswd && adduser dev sudo
@@ -20,5 +21,6 @@ RUN touch ~/.sudo_as_admin_successful
 ADD .tmux.conf .tmux.conf
 ADD .bashrc /home/dev/.bashrc
 ADD .inputrc /home/dev/.inputrc
+ADD .gitconfig /home/dev/.gitconfig
 
 CMD ["tmux"]

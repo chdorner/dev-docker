@@ -1,0 +1,26 @@
+[include]
+  path = .dotfiles/gitconfig_secret
+
+[alias]
+  co = checkout
+  st = status
+  d = difftool
+  fo = fetch origin
+  ff = pull --ff-only
+  standup = log ––since yesterday ––author chdorner
+  b = branch -a
+  lc = rev-parse HEAD
+  l = log --graph --oneline
+
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+
+[push]
+  default = upstream
+
+[diff]
+  tool = vimdiff
+
+[difftool]
+  prompt = false
