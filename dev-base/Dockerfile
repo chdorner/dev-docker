@@ -6,6 +6,7 @@ RUN apt-get install -yq \
   sudo \
   tmux \
   git \
+  silversearcher-ag \
   vim
 
 RUN useradd -m dev && echo "dev:dev" | chpasswd && adduser dev sudo
