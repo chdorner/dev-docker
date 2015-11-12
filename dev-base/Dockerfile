@@ -18,5 +18,6 @@ RUN touch ~/.sudo_as_admin_successful
 
 
 ADD .tmux.conf .tmux.conf
+ADD .bashrc /home/dev/.bashrc
 
 CMD ["tmux"]
