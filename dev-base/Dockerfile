@@ -5,3 +5,7 @@ RUN apt-get update
 RUN apt-get install -yq vim
 
 RUN adduser --disabled-password --gecos "" dev
+
+USER dev
+WORKDIR /home/dev
+CMD ["bash"]
