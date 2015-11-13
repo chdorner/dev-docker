@@ -1,12 +1,12 @@
 FROM ubuntu:15.10
 MAINTAINER Christof Dorner (https://github.com/chdorner)
 
-RUN apt-get update
-RUN apt-get install -yq \
+RUN apt-get update && apt-get install -yq \
   sudo \
   git \
   silversearcher-ag \
-  vim
+  vim \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m dev && echo "dev:dev" | chpasswd && adduser dev sudo
 RUN sed -i.bkp -e \
