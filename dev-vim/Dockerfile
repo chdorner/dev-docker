@@ -27,4 +27,6 @@ ADD .vimrc* /home/dev/
 
 RUN vim -u /home/dev/.vimrc.vundle +PluginInstall +qall
 
+RUN sudo chown dev:dev -R /home/dev
+
 CMD ["bash"]
