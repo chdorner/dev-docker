@@ -4,6 +4,7 @@ MAINTAINER Christof Dorner (https://github.com/chdorner)
 RUN apt-get update && apt-get install -yq \
   sudo \
   git \
+  curl \
   && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m dev && echo "dev:dev" | chpasswd && \
