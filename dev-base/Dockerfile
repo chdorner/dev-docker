@@ -4,7 +4,6 @@ MAINTAINER Christof Dorner (https://github.com/chdorner)
 RUN apt-get update
 RUN apt-get install -yq \
   sudo \
-  tmux \
   git \
   silversearcher-ag \
   vim
@@ -19,9 +18,8 @@ WORKDIR /home/dev
 RUN touch ~/.sudo_as_admin_successful
 
 
-ADD .tmux.conf .tmux.conf
 ADD .bashrc /home/dev/.bashrc
 ADD .inputrc /home/dev/.inputrc
 ADD .gitconfig /home/dev/.gitconfig
 
-CMD ["tmux"]
+CMD ["bash"]
