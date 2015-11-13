@@ -1,23 +1,11 @@
-FROM ubuntu:15.10
+FROM chdorner/dev-base:latest
 MAINTAINER Christof Dorner (https://github.com/chdorner)
 
-RUN apt-get update && apt-get install -yq \
-  sudo \
-  git \
+RUN sudo bash -c "apt-get update && apt-get install -yq \
   silversearcher-ag \
   vim \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/*"
 
-RUN useradd -m dev && echo "dev:dev" | chpasswd && \
-  adduser dev sudo && touch /home/dev/.sudo_as_admin_successful && \
-  sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
-
-USER dev
-WORKDIR /home/dev
-
-ADD .bashrc /home/dev/.bashrc
-ADD .inputrc /home/dev/.inputrc
-ADD .gitconfig /home/dev/.gitconfig
 ADD .vimrc* /home/dev/
 
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
