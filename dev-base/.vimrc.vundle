@@ -1,0 +1,23 @@
+" Vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'ervandew/supertab'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-scripts/tComment'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+filetype plugin indent on
+" Vundle End

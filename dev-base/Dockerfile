@@ -17,9 +17,14 @@ USER dev
 WORKDIR /home/dev
 RUN touch ~/.sudo_as_admin_successful
 
+RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
+  git -C ~/.vim/bundle/Vundle.vim checkout -qf 5f70ae6025e951f0154e3940d123138adffa4c88
 
 ADD .bashrc /home/dev/.bashrc
 ADD .inputrc /home/dev/.inputrc
 ADD .gitconfig /home/dev/.gitconfig
+ADD .vimrc* /home/dev/
+
+RUN vim -u /home/dev/.vimrc.vundle +PluginInstall +qall
 
 CMD ["bash"]
