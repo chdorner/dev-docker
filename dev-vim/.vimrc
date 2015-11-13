@@ -1,2 +1,2 @@
-so .vimrc.vundle
-so .vimrc.config
+so $HOME/.vimrc.vundle
+so $HOME/.vimrc.config
