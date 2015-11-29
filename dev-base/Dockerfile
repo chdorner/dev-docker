@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM debian:jessie
 MAINTAINER Christof Dorner (https://github.com/chdorner)
 
 RUN apt-get update && apt-get install -yq \
